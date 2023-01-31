@@ -1,0 +1,30 @@
+<odoo>
+    <data>
+        <record id="product_template_form_view_mc_inherit" model="ir.ui.view">
+            <field name="name">product.template.form.inherit.mc.inherit</field>
+            <field name="model">product.template</field>
+            <field name="priority">5</field>
+            <field name="inherit_id" ref="product.product_template_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@name='general_information']//group[@name='group_general']" position="inside">
+                    <field name="artist"/>
+                    <field name="size_h"/>
+                    <field name="size_l"/>
+                    <field name="size_p"/>
+                    <field name="picture_name"/>
+                </xpath>
+                 <xpath expr="//page[@name='general_information']//group[@name='group_standard_price']"
+                       position="inside">
+                    <field name="medium"/>
+                    <field name="status"/>
+                    <field name="stock_status"/>
+                    <field name="sub_location"/>
+                    <field name="control_gallery"/>
+                </xpath>
+            </field>
+
+
+
+        </record>
+    </data>
+</odoo>

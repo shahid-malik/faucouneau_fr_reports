@@ -20,6 +20,7 @@
         'report/sales_report_inherit.xml',
         'report/custom_internal_layout.xml',
         'views/res_partner_inherit.xml',
+        'views/product_template.xml',
     ],
     "auto_install": False,
     "installable": True,
