@@ -7,7 +7,7 @@
                     <!-- call to the our custom_report_layout here -->
                     <t t-call="cnb_module.custom_bridge_layout">
                         <div class="page">
-                            <div style="font-size:25px; margin:0px 40px;">
+                            <div style="font-size:25px; margin:500px 40px 0px 40px;">
                                 <i>
                                     <strong>FEES AGREEMENT</strong>
                                 </i>
@@ -17,12 +17,12 @@
                             <div style="font-size:18px; margin:30px 0px 0px 40px; font-family: 'Serif';">
                                 <strong>BETWEEN THE UNDERSIGNED :</strong>
                             </div>
-                            <div style="font-size:18px; margin:20px 50px 0px 40px;">
+                            <div style="font-size:18px; margin:20px 50px 0px 40px; text-align: justify;">
                                 <strong style="font-family: 'Serif';">- Mr / Mrs / the company</strong>
                                 <span>(legal form, registered office, RCS, represented by its legal representative in
                                     office)
                                 </span>
-                                <span style="background-color:#D3D3D3;">
+                                <span>
                                     <t t-if="o.partner_id.company_type == 'company' ">
                                         <span t-field="o.partner_id.name"/>
                                     </t>
@@ -36,19 +36,19 @@
                                     </t>
                                 </span>
                                 <span>, born on</span>
-                                <span style="background-color:#D3D3D3;">
+                                <span>
                                     <t t-esc="o.partner_id.dob" t-options="{'widget': 'date','format': 'd .MM .y'}"/>
                                 </span>
                                 <span>, nationality</span>
-                                <span style="background-color:#D3D3D3;">
-                                    <t t-esc="o.partner_id.nationality"/>
+                                <span>
+                                    <t t-esc="o.partner_id.nationality.name"/>
                                 </span>
                                 <span>,</span>
-                                <span style="background-color:#D3D3D3;">
+                                <span>
                                     <t t-esc="o.partner_id.function"/>
                                 </span>
                                 <span>, residing</span>
-                                <span style="background-color:#D3D3D3;">
+                                <span>
                                     <t t-if="o.partner_id.company_type == 'company' ">
                                         <span t-field="o.partner_id.street"/>
                                         <span t-field="o.partner_id.street2"/>
@@ -86,7 +86,7 @@
                             <div style="font-size:18px; margin:20px 0px 0px 40px; font-family: 'Serif';">
                                 <strong>AND</strong>
                             </div>
-                            <div style="font-size:18px; margin:20px 50px 0px 40px; font-family: 'Serif';">
+                            <div style="font-size:18px; margin:20px 50px 0px 40px; font-family: 'Serif'; text-align: justify;">
                                 <strong>- The society</strong>
                                 <span>(legal form, registered office, RCS) …. Represented by its acting legal
                                     representative, Maître …………………
@@ -226,7 +226,7 @@
                                 <br></br>
                                 <br></br>
 
-                                <span style="font-size:18px;">The LAWYER is responsible for advising and/or ensuring the
+                                <span style="font-size:18px; text-align: justify;">The LAWYER is responsible for advising and/or ensuring the
                                     defense of the CLIENT's
                                     interests, within the framework of
                                     <span style="background-color:#D3D3D3;">
@@ -250,7 +250,7 @@
 
                                 <br></br>
                                 <br></br>
-                                <span style="font-size:18px; color:#2a9df4;">OR THE LAWYER refers to the engagement
+                                <span style="font-size:18px; color:#2a9df4; text-align: justify;">OR THE LAWYER refers to the engagement
                                     letter signed by the client .
                                     NB: the engagement letter, insofar as it contains elements subject to professional
                                     secrecy, is a separate document from the fee agreement.
@@ -262,7 +262,7 @@
                                 </span>
                                 <br></br>
                                 <br></br>
-                                <span>In case of emergency or necessity, THE LAWYER may be replaced at the hearing by a
+                                <span style="font-size:18px; text-align: justify;">In case of emergency or necessity, THE LAWYER may be replaced at the hearing by a
                                     colleague of his choice.
                                 </span>
                             </div>
@@ -283,27 +283,27 @@
                                     </span>
                                     .
                                     <br></br>
-                                    This sum will, where applicable, be increased by VAT at the rate in force on the
-                                    date of invoicing. (See article 6 VAT).
+                                    <span style="text-align: justify;">This sum will, where applicable, be increased by VAT at the rate in force on the
+                                    date of invoicing. (See article 6 VAT).</span>
                                     <span style="font-size:17px; color:#2a9df4;">( OR THE LAWYER declares not to be
                                         subject
                                         to VAT. )
                                     </span>
                                     <br></br>
                                     <br></br>
-                                    This basic fee is fixed according to the foreseeable difficulty of the file in view
-                                    of the elements communicated by the client at the signing of these presents .
+                                    <span style="text-align: justify;">This basic fee is fixed according to the foreseeable difficulty of the file in view
+                                        of the elements communicated by the client at the signing of these presents .</span>
                                     <br></br>
                                     <br></br>
-                                    It covers the procedures listed below, which correspond to the steps strictly
-                                    necessary for the completion of the mission referred to THE LAWYER.
+                                    <span style="text-align: justify;">It covers the procedures listed below, which correspond to the steps strictly
+                                        necessary for the completion of the mission referred to THE LAWYER.</span>
                                 </span>
                             </div>
                             <div style=" font-size:18px; margin:25px 40px 0px 40px; font-family: 'Serif';">
                                 <strong style="text-decoration: underline;">3 – DIVESTMENT</strong>
                                 <br></br>
                                 <br></br>
-                                <span>In the event that THE CLIENT wishes to divest THE LAWYER, the diligences already
+                                <span style="text-align: justify;">In the event that THE CLIENT wishes to divest THE LAWYER, the diligences already
                                     carried out will be remunerated by reference to the usual hourly rate of THE LAWYER,
                                     i.e.
                                     <span style="background-color:#D3D3D3;">
@@ -417,59 +417,158 @@
                                     treatments have the following characteristics:
                                 </span>
                             </div>
-<!--                            <div>-->
-<!--                                <table style="border:1px solid black; width:100%; font-size:13px;">-->
-<!--                                    <tr style="border:1px solid black;">-->
-<!--                                        <th style="text-align:center; border:1px solid black; width:25%;">Purpose</th>-->
-<!--                                        <th style="text-align:center; border:1px solid black; width:20%;">Legal basis-->
-<!--                                        </th>-->
-<!--                                        <th style="text-align:center; border:1px solid black; width:18%;">Data-->
-<!--                                            categories-->
-<!--                                        </th>-->
-<!--                                        <th style="text-align:center; border:1px solid black; width:12%;">Categories of-->
-<!--                                            people-->
-<!--                                        </th>-->
-<!--                                        <th style="text-align:center; border:1px solid black; width:25%;">Duration</th>-->
-<!--                                    </tr>-->
-<!--                                    <tr>-->
-<!--                                        <td>-->
-<!--                                            <tr>-->
-<!--                                                <td style="border:1px solid black;">Prospecting and animation-->
-<!--                                                </td>-->
-<!--                                            </tr>-->
-<!--                                            <tr style="border:1px solid black;">-->
-<!--                                                <td style="border:1px solid black;">Relationship management with-->
-<!--                                                    customers and prospects-->
-<!--                                                </td>-->
-<!--                                            </tr>-->
-<!--                                            <tr style="border:1px solid black;">-->
-<!--                                                <td style="border:1px solid black;">Organization, registration and-->
-<!--                                                    invitation to firm events.-->
-<!--                                                </td>-->
-<!--                                            </tr>-->
-<!--                                        </td>-->
-<!--                                        <td>-->
-<!--                                            <tr>-->
-<!--                                                <td>-->
-<!--                                                </td>-->
-<!--                                            </tr>-->
-<!--                                            <tr>-->
-<!--                                                <td>Legitimate interest-->
-<!--                                                </td>-->
-<!--                                            </tr>-->
-<!--                                            <tr>-->
-<!--                                                <td>-->
-<!--                                                </td>-->
-<!--                                            </tr>-->
-<!--                                        </td>-->
+                            <div>
+                                <!--                                <table style="border:1px solid black; width:100%; font-size:13px;">-->
+                                <!--                                    <tr style="border:1px solid black;">-->
+                                <!--                                        <th style="text-align:center; border:1px solid black; width:25%;">Purpose</th>-->
+                                <!--                                        <th style="text-align:center; border:1px solid black; width:20%;">Legal basis</th>-->
+                                <!--                                        <th style="text-align:center; border:1px solid black; width:18%;">Data categories</th>-->
+                                <!--                                        <th style="text-align:center; border:1px solid black; width:12%;">Categories of people</th>-->
+                                <!--                                        <th style="text-align:center; border:1px solid black; width:25%;">Duration</th>-->
+                                <!--                                    </tr>-->
+                                <!--                                    <tr>-->
+                                <!--                                        <td>-->
+                                <!--                                            <tr>-->
+                                <!--                                                <td style="border:1px solid black;">Prospecting and animation-->
+                                <!--                                                </td>-->
+                                <!--                                            </tr>-->
+                                <!--                                            <tr style="border:1px solid black;">-->
+                                <!--                                                <td style="border:1px solid black;">Relationship management with customers and prospects</td>-->
+                                <!--                                            </tr>-->
+                                <!--                                            <tr style="border:1px solid black;">-->
+                                <!--                                                <td style="border:1px solid black;">Organization, registration and invitation to firm events.</td>-->
+                                <!--                                            </tr>-->
+                                <!--                                        </td>-->
+                                <!--                                        <td>Legitimate interest</td>-->
+                                <!--                                        <td></td>-->
+                                <!--                                        <td></td>-->
+                                <!--                                        <td></td>-->
+                                <!--                                    </tr>-->
 
-<!--                                        <td></td>-->
-<!--                                        <td></td>-->
-<!--                                        <td></td>-->
-<!--                                    </tr>-->
+                                <!--                                </table>-->
+                                <table style="border:1px solid black; width:100%; font-size:13px;">
+                                    <tr style="border:1px solid black; background-color:light blure grey;">
+                                        <th style="text-align:center; border:1px solid black; width:25%;">Purpose</th>
+                                        <th style="text-align:center; border:1px solid black; width:20%;">Legal basis
+                                        </th>
+                                        <th style="text-align:center; border:1px solid black; width:18%;">Data
+                                            categories
+                                        </th>
+                                        <th style="text-align:center; border:1px solid black; width:12%;">Categories of
+                                            people
+                                        </th>
+                                        <th style="text-align:center; border:1px solid black; width:25%;">Duration</th>
+                                    </tr>
+                                    <tr style="background-color:rgb(207, 221, 244);">
+                                        <td style="border:1px solid black; width:22%; font-size:12px;">
+                                            <div style="border-bottom:1px solid black; margin-top:7px;">Prospecting and
+                                                animation
+                                            </div>
+                                            <div style="border-bottom:1px solid black;">Relationship management with
+                                                customers and
+                                                prospects</div>Organization, registration and invitation to firm events.
+                                        </td>
+                                        <td style="border:1px solid black; width:20%; font-size:12px;">Legitimate
+                                            interest
+                                        </td>
+                                        <td style="border:1px solid black; width:21%; font-size:12px;">
+                                            <div style="border-bottom:1px solid black;">Identity/civil
+                                                status
+                                                Contact details
+                                            </div>
+                                            <div style="border-bottom:1px solid black;">Identity/civil status
+                                                Contact details
+                                                Personal/professional life</div>Identity/civil status
+                                            Contact details
+                                            Personal/professional life
+                                        </td>
+                                        <td style="border:1px solid black; width:12%; font-size:11px;">
+                                            <div style="border-bottom:1px solid black;">Clients
+                                                Leads
+                                            </div>
+                                            <div style="border-bottom:1px solid black; margin-top:15px;">Clients
+                                                Leads</div><div>Clients
+                                            Leads
+                                            Guests</div>
+                                        </td>
 
-<!--                                </table>-->
-<!--                            </div>-->
+                                        <td style="border:1px solid black; width:25%; font-size:12px;">
+                                            <div style="border-bottom:1px solid black;">3 years</div>
+                                            <div style="border-bottom:1px solid black;">Longest
+                                                duration
+                                                between: duration of the contractual relationship and firm duration of 3
+                                                years.</div>3 years
+                                        </td>
+
+                                    </tr>
+                                    <tr style="background-color:rgb(147, 180, 201);">
+                                        <td style="border:1px solid black; width:22%; font-size:12px;">
+                                            <div style="border-bottom:1px solid black; margin-top:28px;">Production,
+                                                management, monitoring of client files
+                                            </div>
+                                            <div style="border-bottom:1px solid black; margin-top:15px;">Billing</div>Recovery
+                                        </td>
+                                        <td style="border:1px solid black; width:20%; font-size:12px;">Execution of
+                                            pre-contractual measures or of the contract
+                                        </td>
+                                        <td style="border:1px solid black; width:21%; font-size:12px;">
+                                            <div style="border-bottom:1px solid black;">Identity/civil
+                                                status
+                                                Personal and/or professional life
+                                                Economic and financial information
+                                            </div>
+                                            <div style="border-bottom:1px solid black;">Identity/civil status
+                                                Economic and financial information</div>Identity/civil status
+                                            Economic and financial information
+                                        </td>
+                                        <td style="border:1px solid black; width:12%; font-size:12px;">
+                                            <div style="border-bottom:1px solid black; margin-top:26px;">Clients
+                                            </div>
+                                            <div style="border-bottom:1px solid black;">Clients</div>
+                                            Clients
+                                        </td>
+
+                                        <td style="border:1px solid black; width:25%; font-size:12px;">
+                                            <div style="border-bottom:1px solid black;">Duration of the
+                                                contractual relationship plus limitation periods.
+                                            </div>
+                                            <div style="border-bottom:1px solid black;">10 years from the closing date
+                                                of the accounting year during which
+                                                the invoice was issued.</div>Until full payment of fees.
+                                        </td>
+
+                                    </tr>
+                                    <tr style="background-color:#779eb2;">
+                                        <td style="border:1px solid black; width:22%; font-size:12px;"><div
+                                                style="border-bottom:1px solid black;">Prevention of
+                                            money laundering and terrorist financing and the fight against
+                                            corruption</div>Accounting
+                                        </td>
+                                        <td style="border:1px solid black; width:20%; font-size:12px;">Compliance with
+                                            legal and regulatory obligations
+                                        </td>
+                                        <td style="border:1px solid black; width:21%; font-size:12px;">
+                                            <div style="border-bottom:1px solid black;">Identity/civil
+                                                status, personal and/or professional life
+                                                Economic and financial information
+                                            </div>
+                                            Identity/civil status, economic and financial information
+                                        </td>
+                                        <td style="border:1px solid black; width:12%; font-size:12px;">
+                                            <div style="border-bottom:1px solid black; margin-top:31px;">Clients</div>
+                                            Clients
+                                        </td>
+
+                                        <td style="border:1px solid black; width:25%; font-size:12px;"><div
+                                                style="border-bottom:1px solid black;">5 years after the
+                                            end of the contractual relationship with the firm.
+                                        </div>10 years from the end of the accounting year.
+                                        </td>
+
+                                    </tr>
+
+                                </table>
+                            </div>
                             <div style=" margin:25px 40px 0px 40px; font-family: 'Serif';">
                                 <span style="font-size:18px;">Depending on the purposes
                                     provided for above, the categories of data stored may differ slightly, the latter
@@ -501,7 +600,7 @@
                                      
                                     <br></br>
                                     <br></br>
-                                    <span style="color:#2a9df4; font-size:18px;">Attention: in the event of data
+                                    <span style="color:#2a9df4; font-size:18px; background-color:#D3D3D3;">Attention: in the event of data
                                         transfer to a country outside the European Union or an
                                         international organization, in accordance with Article 13.1 f) of the GDPR,
                                         specify the
