@@ -6,6 +6,10 @@
         <field name="inherit_id" ref="base.view_partner_form"/>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='website']" position="before">
+                <field name="" string="Vip"/>
+                <field name="vip" string="Vip"/>
+                <field name="control_gallery" string="Control Gallery"/>
+                <field name="mailing" string="Mailing"/>
                 <field name="fax" string="Fax"/>
                 <field name="nationality" string="Nationality"/>
                 <field name="dob" string="DoB" placeholder="Date of Birth" widget="date"/>
