@@ -6,8 +6,8 @@
         <field name="inherit_id" ref="base.view_partner_form"/>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='website']" position="before">
-                <field name="" string="Vip"/>
-                <field name="vip" string="Vip"/>
+                <field name="title" string="Title"/>
+                <field name="vip" string="VIP"/>
                 <field name="control_gallery" string="Control Gallery"/>
                 <field name="mailing" string="Mailing"/>
                 <field name="fax" string="Fax"/>
