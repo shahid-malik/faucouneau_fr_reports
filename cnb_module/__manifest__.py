@@ -6,6 +6,7 @@
     "author": "Mediod Consulting",
     "price": 250.00,
     'currency': "USD",
+    'depends': ['base', 'sale'],
     'summary': """
         This module generates a lawyer contract for customers based on the data in customer model and law firm.
         for faucouneau.fr law firm is the only company and data  company from company model.

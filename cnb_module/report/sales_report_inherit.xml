@@ -12,6 +12,7 @@
                                     <strong>FEES AGREEMENT</strong>
                                 </i>
                             </div>
+                            <hr style="height:10px;border-width:0;color:gray;background-color:gray"/>
                             <div style="border:5px solid #D3D3D3; margin:3px 50px 0px 40px;">
                             </div>
                             <div style="font-size:18px; margin:30px 0px 0px 40px; font-family: 'Serif';">
@@ -83,13 +84,14 @@
                                     <span style="font-size:17px;">Hereinafter referred to as THE CUSTOMER</span>
                                 </div>
                             </div>
-                            <div style="font-size:18px; margin:20px 0px 0px 40px; font-family: 'Serif';">
+                            <div style="font-size:18px; margin:10px 0px 0px 20px; font-family: 'Serif';">
                                 <strong>AND</strong>
                             </div>
                             <div style="font-size:18px; margin:20px 50px 0px 40px; font-family: 'Serif'; text-align: justify;">
                                 <strong>- The society</strong>
                                 <span>(legal form, registered office, RCS) …. Represented by its acting legal
-                                    representative, Maître …………………
+                                    representative, <t t-esc="o.user_id.name"/>
+
                                 </span>
                             </div>
                             <div style="font-family: 'Serif'; font-size:18px; color:#2a9df4; margin:5px 0px 0px 40px;">
@@ -114,96 +116,39 @@
                             <div style="font-family: 'Serif'; font-size:18px; margin:5px 0px 0px 40px;">Lawyer at the
                                 Bar of
                                 <span style="background-color:#D3D3D3;">
-                                    <t t-if="o.partner_id.company_type == 'company' ">
-                                        <span t-field="o.partner_id.name"/>
-                                    </t>
-                                    <t t-if="o.partner_id.company_type == 'person' ">
-                                        <t t-if="o.partner_id.parent_id">
-                                            <span t-field="o.partner_id.parent_id.name"/>
-                                        </t>
-                                        <t t-else="">
-                                            <span t-field="o.partner_id.name"/>
-                                        </t>
-                                    </t>
+                                        <span t-field="o.company_id.name"/>
                                 </span>
                             </div>
                             <div style="font-family: 'Serif'; font-size:18px; margin:5px 0px 0px 40px;">Residing
                                 <span style="background-color:#D3D3D3;">
-                                    <t t-if="o.partner_id.company_type == 'company' ">
-                                        <span t-field="o.partner_id.street"/>
-                                        <span t-field="o.partner_id.street2"/>
-                                        <span t-field="o.partner_id.zip"/>
-                                        <span t-field="o.partner_id.city"/>
-                                        <span t-field="o.partner_id.state_id.name"/>
-                                        <span t-field="o.partner_id.country_id.name"/>
-                                    </t>
-                                    <t t-if="o.partner_id.company_type == 'person' ">
-                                        <t t-if="o.partner_id.parent_id">
-                                            <span t-field="o.partner_id.parent_id.street"/>
-                                            <span t-field="o.partner_id.parent_id.street2"/>
-                                            <span t-field="o.partner_id.parent_id.zip"/>
-                                            <span t-field="o.partner_id.parent_id.city"/>
-                                            <span t-field="o.partner_id.parent_id.state_id.name"/>
-                                            <span t-field="o.partner_id.parent_id.country_id.name"/>
-                                        </t>
-                                        <t t-else="">
-                                            <span t-field="o.partner_id.street"/>
-                                            <span t-field="o.partner_id.street2"/>
-                                            <span t-field="o.partner_id.zip"/>
-                                            <span t-field="o.partner_id.city"/>
-                                            <span t-field="o.partner_id.state_id.name"/>
-                                            <span t-field="o.partner_id.country_id.name"/>
-                                        </t>
-                                    </t>
+                                    <span t-field="o.company_id.street"/>
+                                    <span t-field="o.company_id.street2"/>
+                                    <span t-field="o.company_id.zip"/>
+                                    <span t-field="o.company_id.city"/>
+                                    <span t-field="o.company_id.state_id.name"/>
+                                    <span t-field="o.company_id.country_id.name"/>
                                 </span>
                             </div>
                             <div style="font-family: 'Serif'; font-size:18px; margin:5px 0px 0px 40px;">Telephone
                                 <span style="background-color:#D3D3D3;">
-                                    <t t-if="o.partner_id.company_type == 'company' ">
-                                        <span t-field="o.partner_id.phone"/>
-                                    </t>
-                                    <t t-if="o.partner_id.company_type == 'person' ">
-                                        <t t-if="o.partner_id.parent_id">
-                                            <span t-field="o.partner_id.parent_id.phone"/>
-                                        </t>
-                                        <t t-else="">
-                                            <span t-field="o.partner_id.phone"/>
-                                        </t>
-                                    </t>
+                                    <span t-field="o.company_id.phone"/>
                                 </span>
                             </div>
                             <div style="font-family: 'Serif'; font-size:18px; margin:5px 0px 0px 40px;">Fax
                                 <span style="background-color:#D3D3D3;">
-                                    <t t-if="o.partner_id.company_type == 'company' ">
-                                        <span t-field="o.partner_id.fax"/>
-                                    </t>
-                                    <t t-if="o.partner_id.company_type == 'person' ">
-                                        <t t-if="o.partner_id.parent_id">
-                                            <span t-field="o.partner_id.parent_id.fax"/>
-                                        </t>
-                                        <t t-else="">
-                                            <span t-field="o.partner_id.fax"/>
-                                        </t>
-                                    </t>
+                                    <span t-field="o.company_id.phone"/>
                                 </span>
                             </div>
                             <div style="font-family: 'Serif'; font-size:18px; margin:5px 0px 0px 40px;">Email
                                 <span style="background-color:#D3D3D3;">
-                                    <t t-if="o.partner_id.company_type == 'company' ">
-                                        <span t-field="o.partner_id.email"/>
-                                    </t>
-                                    <t t-if="o.partner_id.company_type == 'person' ">
-                                        <t t-if="o.partner_id.parent_id">
-                                            <span t-field="o.partner_id.parent_id.email"/>
-                                        </t>
-                                        <t t-else="">
-                                            <span t-field="o.partner_id.email"/>
-                                        </t>
-                                    </t>
+                                    <span t-field="o.company_id.email"/>
                                 </span>
                             </div>
                             <div style="font-family: 'Serif'; font-size:18px; margin:5px 0px 0px 40px;">Intra-community
                                 VAT number
+                                <span style="background-color:#D3D3D3;">
+                                    <span t-field="o.company_id.vat"/>
+                                </span>
                             </div>
                             <div class="row">
                                 <div class="col-4"></div>
@@ -224,27 +169,16 @@
                                     LAWYER:
                                 </strong>
                                 <br></br>
-                                <br></br>
-
                                 <span style="font-size:18px; text-align: justify;">The LAWYER is responsible for advising and/or ensuring the
                                     defense of the CLIENT's
                                     interests, within the framework of
                                     <span style="background-color:#D3D3D3;">
-                                        <!--<t t-set="i" t-value="1"/>-->
                                         <t t-if="o.order_line">
                                             <span>
                                                 <t t-esc="o.order_line[0].product_id.name"/>
                                             </span>
                                         </t>
-                                        <!--<t t-foreach="o.order_line" t-as="obj">
-                                            <span t-if="obj.product_id">
-                                                <t t-if="i == 1">
-                                                    <span t-field="obj.name"/>
-                                                </t>
-                                            </span>
-                                            <t t-set="i" t-value="i+1"/>
-                                        </t>-->
-                                    </span>
+                                       </span>
                                     . ( mission to be defined)
                                 </span>
 
@@ -274,7 +208,7 @@
                                     <span style="background-color:#D3D3D3;">
                                         <t t-if="o.order_line">
                                             <span>
-                                                <span t-field="o.order_line[0].price_unit"/>
+                                                <span t-field="o.amount_total"/>
                                             </span>
                                         </t>
                                     </span>
@@ -309,7 +243,7 @@
                                     <span style="background-color:#D3D3D3;">
                                         <t t-if="o.order_line">
                                             <span>
-                                                <span t-field="o.order_line[0].price_unit"/>
+                                                <span t-field="o.amount_total"/>
                                             </span>
                                         </t>
                                     </span>
@@ -350,7 +284,7 @@
                                     <span style="background-color:#D3D3D3;">
                                         <t t-if="o.order_line">
                                             <span>
-                                                <span t-field="o.order_line[0].price_subtotal"/>
+                                                <span t-field="o.amount_total"/>
                                             </span>
                                         </t>
                                     </span>
@@ -418,35 +352,8 @@
                                 </span>
                             </div>
                             <div>
-                                <!--                                <table style="border:1px solid black; width:100%; font-size:13px;">-->
-                                <!--                                    <tr style="border:1px solid black;">-->
-                                <!--                                        <th style="text-align:center; border:1px solid black; width:25%;">Purpose</th>-->
-                                <!--                                        <th style="text-align:center; border:1px solid black; width:20%;">Legal basis</th>-->
-                                <!--                                        <th style="text-align:center; border:1px solid black; width:18%;">Data categories</th>-->
-                                <!--                                        <th style="text-align:center; border:1px solid black; width:12%;">Categories of people</th>-->
-                                <!--                                        <th style="text-align:center; border:1px solid black; width:25%;">Duration</th>-->
-                                <!--                                    </tr>-->
-                                <!--                                    <tr>-->
-                                <!--                                        <td>-->
-                                <!--                                            <tr>-->
-                                <!--                                                <td style="border:1px solid black;">Prospecting and animation-->
-                                <!--                                                </td>-->
-                                <!--                                            </tr>-->
-                                <!--                                            <tr style="border:1px solid black;">-->
-                                <!--                                                <td style="border:1px solid black;">Relationship management with customers and prospects</td>-->
-                                <!--                                            </tr>-->
-                                <!--                                            <tr style="border:1px solid black;">-->
-                                <!--                                                <td style="border:1px solid black;">Organization, registration and invitation to firm events.</td>-->
-                                <!--                                            </tr>-->
-                                <!--                                        </td>-->
-                                <!--                                        <td>Legitimate interest</td>-->
-                                <!--                                        <td></td>-->
-                                <!--                                        <td></td>-->
-                                <!--                                        <td></td>-->
-                                <!--                                    </tr>-->
 
-                                <!--                                </table>-->
-                                <table style="border:1px solid black; width:100%; font-size:13px;">
+                                <table style="border:1px solid black; width:80%; font-size:13px;">
                                     <tr style="border:1px solid black; background-color:light blure grey;">
                                         <th style="text-align:center; border:1px solid black; width:25%;">Purpose</th>
                                         <th style="text-align:center; border:1px solid black; width:20%;">Legal basis
@@ -636,32 +543,12 @@
                                         <br></br>
                                         The
                                         <span style="background-color:#D3D3D3;">
-                                            <t t-if="o.partner_id.company_type == 'company' ">
-                                                <span t-field="o.partner_id.street"/>
-                                                <span t-field="o.partner_id.street2"/>
-                                                <span t-field="o.partner_id.zip"/>
-                                                <span t-field="o.partner_id.city"/>
-                                                <span t-field="o.partner_id.state_id.name"/>
-                                                <span t-field="o.partner_id.country_id.name"/>
-                                            </t>
-                                            <t t-if="o.partner_id.company_type == 'person' ">
-                                                <t t-if="o.partner_id.parent_id">
-                                                    <span t-field="o.partner_id.parent_id.street"/>
-                                                    <span t-field="o.partner_id.parent_id.street2"/>
-                                                    <span t-field="o.partner_id.parent_id.zip"/>
-                                                    <span t-field="o.partner_id.parent_id.city"/>
-                                                    <span t-field="o.partner_id.parent_id.state_id.name"/>
-                                                    <span t-field="o.partner_id.parent_id.country_id.name"/>
-                                                </t>
-                                                <t t-else="">
-                                                    <span t-field="o.partner_id.street"/>
-                                                    <span t-field="o.partner_id.street2"/>
-                                                    <span t-field="o.partner_id.zip"/>
-                                                    <span t-field="o.partner_id.city"/>
-                                                    <span t-field="o.partner_id.state_id.name"/>
-                                                    <span t-field="o.partner_id.country_id.name"/>
-                                                </t>
-                                            </t>
+                                            <span t-field="o.company_id.street"/>
+                                            <span t-field="o.company_id.street2"/>
+                                            <span t-field="o.company_id.zip"/>
+                                            <span t-field="o.company_id.city"/>
+                                            <span t-field="o.company_id.state_id.name"/>
+                                            <span t-field="o.company_id.country_id.name"/>
                                         </span>
                                         <br></br>
                                         <br></br>
