@@ -1,0 +1,598 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="sale_report_invoice">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <!-- call to the our custom_report_layout here -->
+                    <t t-call="cnb_module.custom_bridge_layout">
+                        <div class="page">
+                            <div style="font-size:25px; margin:0px 40px;">
+                                <i>
+                                    <strong>FEES AGREEMENT</strong>
+                                </i>
+                            </div>
+                            <div style="border:5px solid #D3D3D3; margin:3px 50px 0px 40px;">
+                            </div>
+                            <div style="font-size:18px; margin:30px 0px 0px 40px; font-family: 'Serif';">
+                                <strong>BETWEEN THE UNDERSIGNED :</strong>
+                            </div>
+                            <div style="font-size:18px; margin:20px 50px 0px 40px;">
+                                <strong style="font-family: 'Serif';">- Mr / Mrs / the company</strong>
+                                <span>(legal form, registered office, RCS, represented by its legal representative in
+                                    office)
+                                </span>
+                                <span style="background-color:#D3D3D3;">
+                                    <t t-if="o.partner_id.company_type == 'company' ">
+                                        <span t-field="o.partner_id.name"/>
+                                    </t>
+                                    <t t-if="o.partner_id.company_type == 'person' ">
+                                        <t t-if="o.partner_id.parent_id">
+                                            <span t-field="o.partner_id.parent_id.name"/>
+                                        </t>
+                                        <t t-else="">
+                                            <span t-field="o.partner_id.name"/>
+                                        </t>
+                                    </t>
+                                </span>
+                                <span>, born on</span>
+                                <span style="background-color:#D3D3D3;">
+                                    <t t-esc="o.partner_id.dob" t-options="{'widget': 'date','format': 'd .MM .y'}"/>
+                                </span>
+                                <span>, nationality</span>
+                                <span style="background-color:#D3D3D3;">
+                                    <t t-esc="o.partner_id.nationality"/>
+                                </span>
+                                <span>,</span>
+                                <span style="background-color:#D3D3D3;">
+                                    <t t-esc="o.partner_id.function"/>
+                                </span>
+                                <span>, residing</span>
+                                <span style="background-color:#D3D3D3;">
+                                    <t t-if="o.partner_id.company_type == 'company' ">
+                                        <span t-field="o.partner_id.street"/>
+                                        <span t-field="o.partner_id.street2"/>
+                                        <span t-field="o.partner_id.zip"/>
+                                        <span t-field="o.partner_id.city"/>
+                                        <span t-field="o.partner_id.state_id.name"/>
+                                        <span t-field="o.partner_id.country_id.name"/>
+                                    </t>
+                                    <t t-if="o.partner_id.company_type == 'person' ">
+                                        <t t-if="o.partner_id.parent_id">
+                                            <span t-field="o.partner_id.parent_id.street"/>
+                                            <span t-field="o.partner_id.parent_id.street2"/>
+                                            <span t-field="o.partner_id.parent_id.zip"/>
+                                            <span t-field="o.partner_id.parent_id.city"/>
+                                            <span t-field="o.partner_id.parent_id.state_id.name"/>
+                                            <span t-field="o.partner_id.parent_id.country_id.name"/>
+                                        </t>
+                                        <t t-else="">
+                                            <span t-field="o.partner_id.street"/>
+                                            <span t-field="o.partner_id.street2"/>
+                                            <span t-field="o.partner_id.zip"/>
+                                            <span t-field="o.partner_id.city"/>
+                                            <span t-field="o.partner_id.state_id.name"/>
+                                            <span t-field="o.partner_id.country_id.name"/>
+                                        </t>
+                                    </t>
+                                </span>
+                            </div>
+                            <div class="row">
+                                <div class="col-4"></div>
+                                <div class="col-6" style="font-family: 'Serif'; margin:20px 0px;">
+                                    <span style="font-size:17px;">Hereinafter referred to as THE CUSTOMER</span>
+                                </div>
+                            </div>
+                            <div style="font-size:18px; margin:20px 0px 0px 40px; font-family: 'Serif';">
+                                <strong>AND</strong>
+                            </div>
+                            <div style="font-size:18px; margin:20px 50px 0px 40px; font-family: 'Serif';">
+                                <strong>- The society</strong>
+                                <span>(legal form, registered office, RCS) …. Represented by its acting legal
+                                    representative, Maître …………………
+                                </span>
+                            </div>
+                            <div style="font-family: 'Serif'; font-size:18px; color:#2a9df4; margin:5px 0px 0px 40px;">
+                                WHERE
+                            </div>
+                            <div style="font-family: 'Serif'; font-size:18px; margin:5px 0px 0px 40px;">
+                                <strong>Master</strong>
+                                <span style="background-color:#D3D3D3;">
+                                    <t t-if="o.partner_id.company_type == 'company' ">
+                                        <span t-field="o.partner_id.mobile"/>
+                                    </t>
+                                    <t t-if="o.partner_id.company_type == 'person' ">
+                                        <t t-if="o.partner_id.parent_id">
+                                            <span t-field="o.partner_id.parent_id.mobile"/>
+                                        </t>
+                                        <t t-else="">
+                                            <span t-field="o.partner_id.mobile"/>
+                                        </t>
+                                    </t>
+                                </span>
+                            </div>
+                            <div style="font-family: 'Serif'; font-size:18px; margin:5px 0px 0px 40px;">Lawyer at the
+                                Bar of
+                                <span style="background-color:#D3D3D3;">
+                                    <t t-if="o.partner_id.company_type == 'company' ">
+                                        <span t-field="o.partner_id.name"/>
+                                    </t>
+                                    <t t-if="o.partner_id.company_type == 'person' ">
+                                        <t t-if="o.partner_id.parent_id">
+                                            <span t-field="o.partner_id.parent_id.name"/>
+                                        </t>
+                                        <t t-else="">
+                                            <span t-field="o.partner_id.name"/>
+                                        </t>
+                                    </t>
+                                </span>
+                            </div>
+                            <div style="font-family: 'Serif'; font-size:18px; margin:5px 0px 0px 40px;">Residing
+                                <span style="background-color:#D3D3D3;">
+                                    <t t-if="o.partner_id.company_type == 'company' ">
+                                        <span t-field="o.partner_id.street"/>
+                                        <span t-field="o.partner_id.street2"/>
+                                        <span t-field="o.partner_id.zip"/>
+                                        <span t-field="o.partner_id.city"/>
+                                        <span t-field="o.partner_id.state_id.name"/>
+                                        <span t-field="o.partner_id.country_id.name"/>
+                                    </t>
+                                    <t t-if="o.partner_id.company_type == 'person' ">
+                                        <t t-if="o.partner_id.parent_id">
+                                            <span t-field="o.partner_id.parent_id.street"/>
+                                            <span t-field="o.partner_id.parent_id.street2"/>
+                                            <span t-field="o.partner_id.parent_id.zip"/>
+                                            <span t-field="o.partner_id.parent_id.city"/>
+                                            <span t-field="o.partner_id.parent_id.state_id.name"/>
+                                            <span t-field="o.partner_id.parent_id.country_id.name"/>
+                                        </t>
+                                        <t t-else="">
+                                            <span t-field="o.partner_id.street"/>
+                                            <span t-field="o.partner_id.street2"/>
+                                            <span t-field="o.partner_id.zip"/>
+                                            <span t-field="o.partner_id.city"/>
+                                            <span t-field="o.partner_id.state_id.name"/>
+                                            <span t-field="o.partner_id.country_id.name"/>
+                                        </t>
+                                    </t>
+                                </span>
+                            </div>
+                            <div style="font-family: 'Serif'; font-size:18px; margin:5px 0px 0px 40px;">Telephone
+                                <span style="background-color:#D3D3D3;">
+                                    <t t-if="o.partner_id.company_type == 'company' ">
+                                        <span t-field="o.partner_id.phone"/>
+                                    </t>
+                                    <t t-if="o.partner_id.company_type == 'person' ">
+                                        <t t-if="o.partner_id.parent_id">
+                                            <span t-field="o.partner_id.parent_id.phone"/>
+                                        </t>
+                                        <t t-else="">
+                                            <span t-field="o.partner_id.phone"/>
+                                        </t>
+                                    </t>
+                                </span>
+                            </div>
+                            <div style="font-family: 'Serif'; font-size:18px; margin:5px 0px 0px 40px;">Fax
+                                <span style="background-color:#D3D3D3;">
+                                    <t t-if="o.partner_id.company_type == 'company' ">
+                                        <span t-field="o.partner_id.fax"/>
+                                    </t>
+                                    <t t-if="o.partner_id.company_type == 'person' ">
+                                        <t t-if="o.partner_id.parent_id">
+                                            <span t-field="o.partner_id.parent_id.fax"/>
+                                        </t>
+                                        <t t-else="">
+                                            <span t-field="o.partner_id.fax"/>
+                                        </t>
+                                    </t>
+                                </span>
+                            </div>
+                            <div style="font-family: 'Serif'; font-size:18px; margin:5px 0px 0px 40px;">Email
+                                <span style="background-color:#D3D3D3;">
+                                    <t t-if="o.partner_id.company_type == 'company' ">
+                                        <span t-field="o.partner_id.email"/>
+                                    </t>
+                                    <t t-if="o.partner_id.company_type == 'person' ">
+                                        <t t-if="o.partner_id.parent_id">
+                                            <span t-field="o.partner_id.parent_id.email"/>
+                                        </t>
+                                        <t t-else="">
+                                            <span t-field="o.partner_id.email"/>
+                                        </t>
+                                    </t>
+                                </span>
+                            </div>
+                            <div style="font-family: 'Serif'; font-size:18px; margin:5px 0px 0px 40px;">Intra-community
+                                VAT number
+                            </div>
+                            <div class="row">
+                                <div class="col-4"></div>
+                                <div class="col-6" style="font-family: 'Serif'; margin:20px 0px;">
+                                    <span style="font-size:17px;">Hereinafter referred to as: THE LAWYER</span>
+                                </div>
+                            </div>
+                            <div>
+                                <span style="font-size:18px; margin:30px 0px 0px 40px; font-family: 'Serif';">
+                                    <strong>IT HAS BEEN ADOPTED AND AGREED AS FOLLOWS:</strong>
+                                </span>
+                            </div>
+                            <div style="text-decoration: underline; font-size:18px; margin:30px 0px 0px 40px; font-family: 'Serif';">
+                                <strong>1 – PROVISION OF THE LAWYER</strong>
+                            </div>
+                            <div style="margin:10px 40px 0px 40px; font-family: 'Serif';">
+                                <strong style="text-decoration: underline; font-size:15px; ">1.1 – MISSION OF THE
+                                    LAWYER:
+                                </strong>
+                                <br></br>
+                                <br></br>
+
+                                <span style="font-size:18px;">The LAWYER is responsible for advising and/or ensuring the
+                                    defense of the CLIENT's
+                                    interests, within the framework of
+                                    <span style="background-color:#D3D3D3;">
+                                        <!--<t t-set="i" t-value="1"/>-->
+                                        <t t-if="o.order_line">
+                                            <span>
+                                                <t t-esc="o.order_line[0].product_id.name"/>
+                                            </span>
+                                        </t>
+                                        <!--<t t-foreach="o.order_line" t-as="obj">
+                                            <span t-if="obj.product_id">
+                                                <t t-if="i == 1">
+                                                    <span t-field="obj.name"/>
+                                                </t>
+                                            </span>
+                                            <t t-set="i" t-value="i+1"/>
+                                        </t>-->
+                                    </span>
+                                    . ( mission to be defined)
+                                </span>
+
+                                <br></br>
+                                <br></br>
+                                <span style="font-size:18px; color:#2a9df4;">OR THE LAWYER refers to the engagement
+                                    letter signed by the client .
+                                    NB: the engagement letter, insofar as it contains elements subject to professional
+                                    secrecy, is a separate document from the fee agreement.
+                                </span>
+                                <br></br>
+                                <br></br>
+                                <span style="font-size:18px;">The LAWYER undertakes to carry out the mission entrusted
+                                    to him.
+                                </span>
+                                <br></br>
+                                <br></br>
+                                <span>In case of emergency or necessity, THE LAWYER may be replaced at the hearing by a
+                                    colleague of his choice.
+                                </span>
+                            </div>
+                            <div style=" font-size:18px; margin:30px 40px 0px 40px; font-family: 'Serif';">
+                                <strong style="text-decoration: underline;">2 – LAWYER'S FEES</strong>
+                                <br></br>
+                                <br></br>
+                                <span>The basic fee is fixed at the sum of
+                                    <span style="background-color:#D3D3D3;">
+                                        <t t-if="o.order_line">
+                                            <span>
+                                                <span t-field="o.order_line[0].price_unit"/>
+                                            </span>
+                                        </t>
+                                    </span>
+                                    <span style="font-size:14px;">
+                                        <t t-esc="o.order_line[0].currency_id.symbol"/>
+                                    </span>
+                                    .
+                                    <br></br>
+                                    This sum will, where applicable, be increased by VAT at the rate in force on the
+                                    date of invoicing. (See article 6 VAT).
+                                    <span style="font-size:17px; color:#2a9df4;">( OR THE LAWYER declares not to be
+                                        subject
+                                        to VAT. )
+                                    </span>
+                                    <br></br>
+                                    <br></br>
+                                    This basic fee is fixed according to the foreseeable difficulty of the file in view
+                                    of the elements communicated by the client at the signing of these presents .
+                                    <br></br>
+                                    <br></br>
+                                    It covers the procedures listed below, which correspond to the steps strictly
+                                    necessary for the completion of the mission referred to THE LAWYER.
+                                </span>
+                            </div>
+                            <div style=" font-size:18px; margin:25px 40px 0px 40px; font-family: 'Serif';">
+                                <strong style="text-decoration: underline;">3 – DIVESTMENT</strong>
+                                <br></br>
+                                <br></br>
+                                <span>In the event that THE CLIENT wishes to divest THE LAWYER, the diligences already
+                                    carried out will be remunerated by reference to the usual hourly rate of THE LAWYER,
+                                    i.e.
+                                    <span style="background-color:#D3D3D3;">
+                                        <t t-if="o.order_line">
+                                            <span>
+                                                <span t-field="o.order_line[0].price_unit"/>
+                                            </span>
+                                        </t>
+                                    </span>
+                                    <span style="font-size:14px;">
+                                        <t t-esc="o.order_line[0].currency_id.symbol"/>
+                                    </span>
+                                    excluding taxes, and
+                                    not on the basis of fees basic and additional
+                                    items listed in Articles 2.1 and 2.2.
+                                    <br></br>
+                                    <br></br>
+                                    In the event that the divestiture takes place on a date close to the outcome of the
+                                    procedure and when the work accomplished will have made it possible to obtain the
+                                    desired result, the clause relating to the fees for the result will remain
+                                    applicable in the terms provided for in article 2.3 of this agreement.
+                                </span>
+                            </div>
+                            <div style=" font-size:18px; margin:25px 40px 0px 40px; font-family: 'Serif';">
+                                <strong style="text-decoration: underline;">4 – VAT</strong>
+                                <br></br>
+                                <br></br>
+                                <span>All of the fees referred to in this agreement, as well as travel expenses and
+                                    fees, are increased by VAT at the rate in force.
+                                    <br></br>
+                                    <br></br>
+                                    <span style="color:#2a9df4;">(Variant to be provided for the lawyer exempt from VAT
+                                        or if VAT is not payable due
+                                        to the rules of territoriality of VAT in the provision of services)
+                                    </span>
+                                </span>
+                            </div>
+                            <div style=" font-size:18px; margin:25px 40px 0px 40px; font-family: 'Serif';">
+                                <strong style="text-decoration: underline;">5 – BILLING</strong>
+                                <br></br>
+                                <br></br>
+                                <span>The basic fee will be invoiced in successive installments, the first provision in
+                                    the amount of
+                                    <span style="background-color:#D3D3D3;">
+                                        <t t-if="o.order_line">
+                                            <span>
+                                                <span t-field="o.order_line[0].price_subtotal"/>
+                                            </span>
+                                        </t>
+                                    </span>
+                                    occurring on
+                                    the date of signature of these presents.
+                                    <br></br>
+                                    <br></br>
+                                    The additional due diligence referred to in article 2.2 will be invoiced as they are
+                                    carried out.
+                                    <br></br>
+                                    <br></br>
+                                    A summary invoice will be drawn up at the end of the lawyer's mission, showing all
+                                    the fees due, the disbursements incurred and the provisions paid. Supporting
+                                    documents for disbursements are attached to the summary invoice.
+                                </span>
+                            </div>
+                            <div style=" font-size:18px; margin:25px 40px 0px 40px; font-family: 'Serif';">
+                                <strong style="text-decoration: underline;">6 – DISPUTES</strong>
+                                <br></br>
+                                <br></br>
+                                <span>
+                                    <span style="background-color:#D3D3D3;">Grasse</span>
+                                    Bar Association may be seized at the request of the most diligent party.
+                                </span>
+                            </div>
+                            <div style=" margin:25px 40px 0px 40px; font-family: 'Serif';">
+                                <strong style="text-decoration: underline; font-size:18px;">7 – MEDIATION</strong>
+                                <br></br>
+                                <br></br>
+                                <span style="font-size:18px;">THE CUSTOMER, if he wishes, can also contact the consumer
+                                    mediator of the legal
+                                    profession:
+                                    <br></br>
+                                    Consumer mediator of the legal profession
+                                    <br></br>
+                                    Ms. Carole Pascarel
+                                    <br></br>
+                                    Address: 180 boulevard Haussmann, 75008 Paris
+                                    <br></br>
+                                    E-mail address:
+                                    <span style="font-size:16px; color:#2a9df4;">
+                                        mediateur-conso@mediateur-consommation-avocat.fr
+                                    </span>
+                                    <br></br>
+                                    Website:
+                                    <span style="font-size:16px; color:#2a9df4;">
+                                        https://mediateur-consommation-avocat.fr
+                                    </span>
+                                    <br></br>
+                                    <br></br>
+                                    THE CUSTOMER is informed that referral to the mediator can only take place after
+                                    having first attempted to resolve the dispute directly with THE LAWYER by means of a
+                                    written complaint.
+                                </span>
+                            </div>
+                            <div style=" margin:25px 40px 0px 40px; font-family: 'Serif';">
+                                <strong style="text-decoration: underline; font-size:18px;">8– PROTECTION OF PERSONAL
+                                    DATA
+                                </strong>
+                                <br></br>
+                                <br></br>
+                                <span style="font-size:18px;">The firm implements the processing of personal data
+                                    concerning its clients. These
+                                    treatments have the following characteristics:
+                                </span>
+                            </div>
+<!--                            <div>-->
+<!--                                <table style="border:1px solid black; width:100%; font-size:13px;">-->
+<!--                                    <tr style="border:1px solid black;">-->
+<!--                                        <th style="text-align:center; border:1px solid black; width:25%;">Purpose</th>-->
+<!--                                        <th style="text-align:center; border:1px solid black; width:20%;">Legal basis-->
+<!--                                        </th>-->
+<!--                                        <th style="text-align:center; border:1px solid black; width:18%;">Data-->
+<!--                                            categories-->
+<!--                                        </th>-->
+<!--                                        <th style="text-align:center; border:1px solid black; width:12%;">Categories of-->
+<!--                                            people-->
+<!--                                        </th>-->
+<!--                                        <th style="text-align:center; border:1px solid black; width:25%;">Duration</th>-->
+<!--                                    </tr>-->
+<!--                                    <tr>-->
+<!--                                        <td>-->
+<!--                                            <tr>-->
+<!--                                                <td style="border:1px solid black;">Prospecting and animation-->
+<!--                                                </td>-->
+<!--                                            </tr>-->
+<!--                                            <tr style="border:1px solid black;">-->
+<!--                                                <td style="border:1px solid black;">Relationship management with-->
+<!--                                                    customers and prospects-->
+<!--                                                </td>-->
+<!--                                            </tr>-->
+<!--                                            <tr style="border:1px solid black;">-->
+<!--                                                <td style="border:1px solid black;">Organization, registration and-->
+<!--                                                    invitation to firm events.-->
+<!--                                                </td>-->
+<!--                                            </tr>-->
+<!--                                        </td>-->
+<!--                                        <td>-->
+<!--                                            <tr>-->
+<!--                                                <td>-->
+<!--                                                </td>-->
+<!--                                            </tr>-->
+<!--                                            <tr>-->
+<!--                                                <td>Legitimate interest-->
+<!--                                                </td>-->
+<!--                                            </tr>-->
+<!--                                            <tr>-->
+<!--                                                <td>-->
+<!--                                                </td>-->
+<!--                                            </tr>-->
+<!--                                        </td>-->
+
+<!--                                        <td></td>-->
+<!--                                        <td></td>-->
+<!--                                        <td></td>-->
+<!--                                    </tr>-->
+
+<!--                                </table>-->
+<!--                            </div>-->
+                            <div style=" margin:25px 40px 0px 40px; font-family: 'Serif';">
+                                <span style="font-size:18px;">Depending on the purposes
+                                    provided for above, the categories of data stored may differ slightly, the latter
+                                    being
+                                    essentially linked to the nature of the mission entrusted. This information is
+                                    necessary
+                                    for the pursuit of the purposes identified below.
+                                    <br></br>
+                                    <br></br>
+                                    In the event that the purpose of this assignment requires it, sensitive data within
+                                    the
+                                    meaning of the applicable regulations may be processed, in particular when
+                                    necessary:
+                                    <br></br>
+                                    - , exercise or defense of legal claims;
+                                    <br></br>
+                                    - or for the purposes of fulfilling the obligations and exercising the rights
+                                    specific
+                                    to the controller or the data subject in terms of labor law, social security and
+                                    social
+                                    protection.
+                                    <br></br>
+                                    <br></br>
+                                    The data processed is intended for the authorized persons of the firm, as well as
+                                    its
+                                    service providers.<span style="background-color:#D3D3D3; color:#2a9df4;">( to be
+                                        adapted or supplemented if necessary )
+                                    </span> .
+                                     
+                                    <br></br>
+                                    <br></br>
+                                    <span style="color:#2a9df4; font-size:18px;">Attention: in the event of data
+                                        transfer to a country outside the European Union or an
+                                        international organization, in accordance with Article 13.1 f) of the GDPR,
+                                        specify the
+                                        country, the existence or the reference to the appropriate guarantees (standard
+                                        clauses
+                                        data protection policies, approved codes of conduct , etc. ) and how to obtain a
+                                        copy or
+                                        where they have been made available)
+                                    </span>
+                                    .
+                                    <br></br>
+                                    <br></br>
+                                    <span style="font-size:18px;">Under the conditions defined by the Data Protection
+                                        Act and the European Data
+                                        Protection Regulation, individuals have a right of access to data concerning
+                                        them, rectification, limitation, portability, deletion.
+                                        <br></br>
+                                        <br></br>
+                                        The persons concerned by the processing implemented also have the right to
+                                        object at any time, for reasons relating to their particular situation, to the
+                                        processing of personal data having as a legal basis the legitimate interest of
+                                        the firm. , as well as a right of opposition to commercial prospecting.
+                                        <br></br>
+                                        <br></br>
+                                        The persons concerned have the right to lodge a complaint with the CNIL.
+                                        <br></br>
+                                        <br></br>
+                                        Done at
+                                        <span style="background-color:#D3D3D3;">
+                                            <span t-field="o.date_order"
+                                                  t-options="{'widget': 'date','format': 'd .MM .y'}"/>
+                                        </span>
+                                        <br></br>
+                                        The
+                                        <span style="background-color:#D3D3D3;">
+                                            <t t-if="o.partner_id.company_type == 'company' ">
+                                                <span t-field="o.partner_id.street"/>
+                                                <span t-field="o.partner_id.street2"/>
+                                                <span t-field="o.partner_id.zip"/>
+                                                <span t-field="o.partner_id.city"/>
+                                                <span t-field="o.partner_id.state_id.name"/>
+                                                <span t-field="o.partner_id.country_id.name"/>
+                                            </t>
+                                            <t t-if="o.partner_id.company_type == 'person' ">
+                                                <t t-if="o.partner_id.parent_id">
+                                                    <span t-field="o.partner_id.parent_id.street"/>
+                                                    <span t-field="o.partner_id.parent_id.street2"/>
+                                                    <span t-field="o.partner_id.parent_id.zip"/>
+                                                    <span t-field="o.partner_id.parent_id.city"/>
+                                                    <span t-field="o.partner_id.parent_id.state_id.name"/>
+                                                    <span t-field="o.partner_id.parent_id.country_id.name"/>
+                                                </t>
+                                                <t t-else="">
+                                                    <span t-field="o.partner_id.street"/>
+                                                    <span t-field="o.partner_id.street2"/>
+                                                    <span t-field="o.partner_id.zip"/>
+                                                    <span t-field="o.partner_id.city"/>
+                                                    <span t-field="o.partner_id.state_id.name"/>
+                                                    <span t-field="o.partner_id.country_id.name"/>
+                                                </t>
+                                            </t>
+                                        </span>
+                                        <br></br>
+                                        <br></br>
+                                        In two copies
+                                        <br></br>
+                                        <br></br>
+                                        <div class="row">
+                                            <div class="col-5" style="text-align:left;">Signature of lawyer</div>
+                                            <div class="col-5" style="font-family: 'Serif';">
+                                                <span style="font-size:18px; text-align:right;">Signature of
+                                                    client<br></br>(marked read and approved)
+                                                </span>
+                                            </div>
+                                            <div class="col-1"></div>
+                                        </div>
+
+                                    </span>
+                                </span>
+                            </div>
+
+
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+        <template id="report_saleorder_inherit" inherit_id="sale.report_saleorder">
+            <xpath expr="//t[@t-call='sale.report_saleorder_document']" position="replace">
+                <t t-call="cnb_module.sale_report_invoice" t-lang="doc.partner_id.lang"/>
+            </xpath>
+        </template>
+    </data>
+</odoo>
